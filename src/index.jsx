@@ -24,18 +24,6 @@ function App() {
   const [nextSlide, setNextSlide] = useState();
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [totalSlideNumber, setTotalSlideNumber] = useState();
-
-  /*const [speakerNote, setSpeakerNote] = useState(
-    () => {
-      // getting stored value
-      const speakernotes = localStorage.getItem("speakernotes");
-      const initialValue = JSON.parse(speakernotes);
-      console.log(initialValue);
-      return initialValue || [];
-    }
-  );
-*/
-
   const [speakerNote, setSpeakerNote] = useState("");
 
   const handleNoteSubmit = (event) => {
@@ -56,7 +44,6 @@ function App() {
       if (speakerNotes.length !== 0) {  
         let existingNote = false;
         speakerNotes.forEach(speakerNoteElt => {
-          console.log(speakerNoteElt);
           if (speakerNoteElt.slideIndex === currentSlideIndex) { //if there's an existing note, we update it
             speakerNoteElt.speakerNote = speakerNote;
             existingNote = true;
@@ -74,13 +61,9 @@ function App() {
         speakerNotes.push(newNote);
         setSpeakerNote("");
       }
-     
-      console.log(speakerNotes);
 
       localStorage.setItem("speakernotes", JSON.stringify(speakerNotes)); // store the array
-
-      const saved = localStorage.getItem("speakernotes"); // check if saved correctly
-      console.log(saved);
+     
     }
 
     if (event.currentTarget.className === "previous-slide") {
@@ -106,7 +89,6 @@ function App() {
       speakerNotes.forEach(speakerNoteElt => {
         if (speakerNoteElt.slideIndex === currentSlideIndex) {
           setSpeakerNote(speakerNoteElt.speakerNote);
-          console.log(speakerNote);
         }
     }) 
   }

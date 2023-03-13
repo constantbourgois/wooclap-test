@@ -1,5 +1,7 @@
 $wooclap-blue: #146aff;
 $footer-height: 45px;
+$tablet: 768pc;
+$medium: 900px;
 
 body {
   margin: 0;
@@ -36,22 +38,52 @@ a {
 }
 .left-col {
   height: 100%;
-  width: 75%;
+  width: 85%;
 }
 
 .Slide {
+  & > div {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  form {
+    width: 100%;
+    flex-grow: 1;
+    textarea {
+      height: 100%;
+      resize: none;
+      border: .5px solid lightgray;
+      padding: 10px;
+      box-sizing: border-box;
+      width: 100%;
+      color: lightgray;
+    }
+  }
   height: calc(100% - $footer-height);
   background-color: #f8f9fa;
   display: inline-block;
-  width: 75%;
+  width: 85%;
   padding-top: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-  img {
-    width: 100%;
+  .currentslide-wrap{
     border: 0.5px solid lightgray;
-    border-radius: 2px;
+    border-radius: 5px;
+    height: calc(100% - 150px);
+    width: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(100% - 20px);
+    margin: 10px;
+    img {
+      object-fit: contain;
+      height: 100%;
+      max-width: 100%;
+      max-height: 100%;
+    }
   }
+ 
 }
 .slide-nav {
   display: flex;
@@ -60,6 +92,7 @@ a {
   font-size: 0.8rem;
   margin: 5px 0;
   gap: 40px;
+  height: 40px;
   .currentslide-index {
     color: $wooclap-blue;
   }
@@ -75,7 +108,7 @@ a {
   padding: 0 10px;
 }
 .SlideList {
-  width: 25%;
+  width: 15%;
   display: inline-block;
   max-height: calc(100% - $footer-height);
   overflow-y: scroll;
@@ -98,7 +131,7 @@ a {
       margin-top: 5px;
     }
     .imglist-wrap {
-      padding-right: 5px;
+      padding-right: 15px;
     }
     .imglist-index {
       padding-left: 20px;
@@ -110,6 +143,9 @@ a {
   }
   .selected-slide {
     position: relative;
+    img {
+      border: 1px solid $wooclap-blue;
+    }
     &::after {
       background-color: $wooclap-blue;
       position: absolute;
@@ -123,18 +159,19 @@ a {
   }
 }
 .SideBar {
-  width: 25%;
+  width: 15%;
   display: inline-block;
   background-color: #ffffff;
   height: 100vh;
   overflow-y: scroll;
   box-shadow: 0 2px 4px #0000001f, 0 2px 4px #00000066;
+  min-width: 250px;
   & > div {
-    height: 2000px;
     button {
       max-width: 50%;
       text-transform: none;
       font-weight: 700;
+      flex-grow: 1;
       &:first-child {
         border-right: 1px solid lightgray;
       }
@@ -172,15 +209,4 @@ a {
   &::before {
     content: none !important;
   }
-}
-
-form,
-textarea {
-  width: 100%;
-}
-textarea {
-  resize: none;
-  border: 1px solid lightgray;
-  padding: 10px;
-  box-sizing: border-box;
 }

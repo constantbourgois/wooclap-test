@@ -7,7 +7,7 @@ const SpeakerNoteForm = (props) => {
       <textarea
         value={props.speakerNote}
         onChange={(e) => props.setSpeakerNote(e.target.value)}
-        placeholder="add a note"
+        placeholder="click to add a speaker note"
         aria-label="addnote"
         
       />

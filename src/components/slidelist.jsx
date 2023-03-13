@@ -13,7 +13,7 @@ const SlideList = (props) => {
   const slideItems = props.slideImages.map((slidesImage,index) => (
     <li key={slidesImage} onClick={() => setSlide(slidesImage,index)}>
       <a className ={ (index === props.currentSlideIndex ? 'selected-slide' : '') }  href="#">
-        <span className="imglist-index">{index}</span>
+        <span className="imglist-index">{index + 1}</span>
         <span className="imglist-wrap"><img alt="img" src={slidesImage} /></span>
       </a>
     </li>
